@@ -14,7 +14,8 @@ if [[ $CUSTOM_URL == "null" ]]; then
     echo "Host is not specified"
 elif [[ ! $CUSTOM_URL =~ :[0-9]+$ ]]; then
     HOST_URL="$CUSTOM_URL"
-    conf+="-h $HOST_URL"
+    HOST_PORT="$CUSTOM_PASS"
+    conf+="-h $HOST_URL -p $HOST_PORT"
 elif [[ $CUSTOM_URL =~ :([0-9]+)$ ]]; then
     HOST_URL="${CUSTOM_URL%:*}"
     HOST_PORT="${BASH_REMATCH[1]}"
